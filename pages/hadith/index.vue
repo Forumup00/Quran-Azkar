@@ -5,8 +5,8 @@
     <Hadith v-for="hadith in hadithArr" :key="hadith.number" :hadith="hadith" />
   </div>
 
-  <nav aria-label="Page navigation example">
-    <ul class="pagination">
+  <nav aria-label="Page navigation">
+    <ul class="pagination p-0">
       <li class="page-item" @click="changePage(currentPage - 1)">
         <a class="page-link" href="#">السابق</a>
       </li>

@@ -36,12 +36,23 @@
 
       <li class="mb-3">
         <NuxtLink
+          to="/time"
+          class="text-decoration-none d-flex align-items-center gap-2 page"
+        >
+          <img src="@/assets/imgs/clock.png" alt="quran" class="w-photo" />
+
+          <span class="fs-5 main-color">مواقيت الصلاة</span>
+        </NuxtLink>
+      </li>
+
+      <li class="mb-3">
+        <NuxtLink
           to="#"
           class="text-decoration-none d-flex align-items-center gap-2 page"
         >
           <img src="@/assets/imgs/doaa.jpg" alt="quran" class="w-photo" />
 
-          <span class="fs-5 main-color">أدعية نبوية</span>
+          <span class="fs-5 main-color">أدعية</span>
         </NuxtLink>
       </li>
 
