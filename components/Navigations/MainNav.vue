@@ -3,7 +3,7 @@
     class="container-fluid position-sticky sticky-top py-2 bg-white main-nav"
     :class="isDrop && 'box-shadow'"
   >
-    <div class="d-flex justify-content-between align-items-center gap-3">
+    <div class="d-flex justify-content-between align-items-center">
       <div
         class="logo-container d-flex justify-content-center align-items-center rounded-circle"
       >
