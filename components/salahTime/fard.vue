@@ -74,7 +74,7 @@ const hr = ref(
 const min = ref(props.fard.time.slice(3));
 const sec = ref(0);
 
-const hr_rotation = ref(30 * hr.value + min.value / 2); //converting current time
+const hr_rotation = ref(30 * hr.value + min.value / 2);
 const min_rotation = ref(6 * min.value);
 const sec_rotation = ref(6 * sec.value);
 
@@ -91,7 +91,12 @@ onMounted(() => {
 
 <style scoped>
 .time-card {
-  /* height: 150px; */
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px,
+    rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+  transition-duration: 0.3s;
+}
+.time-card:hover {
+  transform: translateY(-8px);
 }
 
 .clockContainer {
