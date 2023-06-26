@@ -70,6 +70,7 @@ let day = date.toString().slice(8, 10);
 const { data, pending } = await useFetch(
   `https://api.aladhan.com/v1/timingsByCity/${day}-${month}-${year}?city=cairo&country=egypt&method=8`
 );
+console.log(data.value.data);
 const timing = ref(data.value.data.timings);
 
 const timeArr = ref([]);

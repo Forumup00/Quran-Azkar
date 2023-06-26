@@ -47,34 +47,23 @@
 
       <li class="mb-3">
         <NuxtLink
+          to="/azkar/azkarmn"
+          class="text-decoration-none d-flex align-items-center gap-2 page"
+        >
+          <img src="@/assets/imgs/morning.jpg" alt="quran" class="w-photo" />
+
+          <span class="fs-6 fw-bold main-color">أذكار الصباح والمساء</span>
+        </NuxtLink>
+      </li>
+
+      <li class="">
+        <NuxtLink
           to="#"
           class="text-decoration-none d-flex align-items-center gap-2 page"
         >
           <img src="@/assets/imgs/doaa.jpg" alt="quran" class="w-photo" />
 
           <span class="fs-5 main-color">أدعية</span>
-        </NuxtLink>
-      </li>
-
-      <li class="mb-3">
-        <NuxtLink
-          to="#"
-          class="text-decoration-none d-flex align-items-center gap-2 page"
-        >
-          <img src="@/assets/imgs/morning.jpg" alt="quran" class="w-photo" />
-
-          <span class="fs-5 main-color">أذكار الصباح</span>
-        </NuxtLink>
-      </li>
-
-      <li class="mb-3">
-        <NuxtLink
-          to="#"
-          class="text-decoration-none d-flex align-items-center gap-2 page"
-        >
-          <img src="@/assets/imgs/night.jpg" alt="quran" class="w-photo" />
-
-          <span class="fs-5 main-color">أذكار المساء</span>
         </NuxtLink>
       </li>
     </ul>
@@ -108,7 +97,7 @@
   background-color: #ddd;
 }
 
-@media only screen and (max-width: 500px) {
+@media only screen and (max-width: 768px) {
   .side-nav {
     display: none;
   }

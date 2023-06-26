@@ -1,5 +1,9 @@
 <template>
   <div class="row mx-0 g-3">
+    <div class="col-12">
+      <h4 class="mb-0 text-secondary">تسبيح</h4>
+    </div>
+
     <TaspehZekr v-for="zekr in imgArr" :key="zekr" :zekr="zekr" />
   </div>
 </template>

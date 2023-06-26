@@ -25,3 +25,7 @@
 ::-webkit-scrollbar-thumb:hover {
   background-color: #555;
 }
+
+audio {
+  height: 40px !important;
+}

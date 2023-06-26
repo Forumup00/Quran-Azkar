@@ -17,7 +17,7 @@
   padding: 20px;
 }
 
-@media only screen and (max-width: 500px) {
+@media only screen and (max-width: 768px) {
   .slot {
     margin-right: 0 !important;
   }
