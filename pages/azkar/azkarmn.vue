@@ -24,17 +24,31 @@
 
     <hr />
 
-    <AzkarZekr v-for="zekr in azkarArr" :key="zekr.ID" :zekr="zekr" />
+    <div
+      v-if="pending"
+      class="loading d-flex justify-content-center align-items-center"
+    >
+      <div class="spinner-border text-success" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div>
+    </div>
+
+    <AzkarZekr v-else v-for="zekr in azkarArr" :key="zekr.ID" :zekr="zekr" />
   </div>
 </template>
 
 <script setup>
-const { data } = await useFetch("http://www.hisnmuslim.com/api/ar/27.json");
+const { data, pending } = await useFetch(
+  "http://www.hisnmuslim.com/api/ar/27.json"
+);
 const azkarArr = ref([]);
 for (let zekr in data.value) {
   azkarArr.value.push(...data.value[zekr]);
 }
-console.log(azkarArr.value);
 </script>
 
-<style scoped></style>
+<style scoped>
+.loading {
+  height: 73vh;
+}
+</style>
