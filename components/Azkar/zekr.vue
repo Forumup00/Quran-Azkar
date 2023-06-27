@@ -20,7 +20,7 @@
         <p class="mb-0 fs-5 fw-bold">أستمع</p>
 
         <audio :id="`player${zekr.ID}`" controls>
-          <source :src="zekr.AUDIO" type="audio/mp3" />
+          <source :src="audio" type="audio/mp3" />
         </audio>
       </div>
     </div>
@@ -38,6 +38,13 @@ const props = defineProps({
   },
 });
 const counter = ref(props.zekr.REPEAT);
+const audioZekr = ref(props.zekr.AUDIO);
+
+const audio = computed(() => {
+  return audioZekr.value.slice(0, 4) == "http"
+    ? `https${audioZekr.value.slice(4)}`
+    : `${audioZekr.value}`;
+});
 
 onMounted(() => {
   const player = new Plyr(`#player${props.zekr.ID}`);
