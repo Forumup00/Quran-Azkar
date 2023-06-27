@@ -98,7 +98,7 @@ async function showPosition(position) {
   // console.log("Latitude: " + position.coords.latitude);
   // console.log("Longitude: " + position.coords.longitude);
   const { data } = await useFetch(
-    `http://dev.virtualearth.net/REST/v1/Locations/${position.coords.latitude},${position.coords.longitude}?o=json&key=AiFdCItK77X69sIoxqOAq7ZS4hEMp6xlV8EkZM_N0xr-AFLEvyiHKL382FqTUto6`
+    `https://dev.virtualearth.net/REST/v1/Locations/${position.coords.latitude},${position.coords.longitude}?o=json&key=AiFdCItK77X69sIoxqOAq7ZS4hEMp6xlV8EkZM_N0xr-AFLEvyiHKL382FqTUto6`
   );
   console.log(toRaw(data.value.resourceSets[0].resources[0]));
 
