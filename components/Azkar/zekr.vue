@@ -19,9 +19,8 @@
       >
         <p class="mb-0 fs-5 fw-bold">أستمع</p>
 
-        <audio id="myAudio" controls class="bg-secondary p-1 rounded-pill">
+        <audio :id="`player${zekr.ID}`" controls>
           <source :src="zekr.AUDIO" type="audio/mp3" />
-          Your browser does not support the audio element.
         </audio>
       </div>
     </div>
@@ -29,6 +28,8 @@
 </template>
 
 <script setup>
+import Plyr from "plyr";
+
 const props = defineProps({
   zekr: {
     type: Object,
@@ -37,12 +38,13 @@ const props = defineProps({
   },
 });
 const counter = ref(props.zekr.REPEAT);
+
+onMounted(() => {
+  const player = new Plyr(`#player${props.zekr.ID}`);
+});
 </script>
 
 <style scoped>
 @media only screen and (max-width: 768px) {
-  audio {
-    width: 90%;
-  }
 }
 </style>

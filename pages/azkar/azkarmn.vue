@@ -11,12 +11,11 @@
         >
           <p class="mb-0 fs-5 fw-bold">أستمع للأذكار</p>
 
-          <audio id="myAudio" controls class="bg-secondary p-1 rounded-pill">
+          <audio id="myAudio" controls>
             <source
               src="http://www.hisnmuslim.com/audio/ar/ar_7esn_AlMoslem_by_Doors_028.mp3"
               type="audio/mp3"
             />
-            Your browser does not support the audio element.
           </audio>
         </div>
       </div>
@@ -38,6 +37,8 @@
 </template>
 
 <script setup>
+import Plyr from "plyr";
+
 const { data, pending } = await useFetch(
   "http://www.hisnmuslim.com/api/ar/27.json"
 );
@@ -45,6 +46,10 @@ const azkarArr = ref([]);
 for (let zekr in data.value) {
   azkarArr.value.push(...data.value[zekr]);
 }
+
+onMounted(() => {
+  const player = new Plyr(`#myAudio`);
+});
 </script>
 
 <style scoped>

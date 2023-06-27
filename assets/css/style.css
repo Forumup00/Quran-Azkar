@@ -1,3 +1,11 @@
+:root {
+  --plyr-color-main: #ffffff;
+  --plyr-audio-controls-background: #1b995e;
+  --plyr-audio-control-color: rgb(255, 255, 255);
+  --plyr-control-radius: 50%;
+  --plyr-audio-control-background-hover: #222;
+}
+
 * {
   font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue",
     Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji",
@@ -26,6 +34,6 @@
   background-color: #555;
 }
 
-audio {
-  height: 40px !important;
+.plyr__controls {
+  border-radius: 50px !important;
 }
