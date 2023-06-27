@@ -13,7 +13,7 @@
 
           <audio id="myAudio" controls>
             <source
-              src="http://www.hisnmuslim.com/audio/ar/ar_7esn_AlMoslem_by_Doors_028.mp3"
+              src="https://www.hisnmuslim.com/audio/ar/ar_7esn_AlMoslem_by_Doors_028.mp3"
               type="audio/mp3"
             />
           </audio>
@@ -40,7 +40,7 @@
 import Plyr from "plyr";
 
 const { data, pending } = await useFetch(
-  "http://www.hisnmuslim.com/api/ar/27.json"
+  "https://www.hisnmuslim.com/api/ar/27.json"
 );
 const azkarArr = ref([]);
 for (let zekr in data.value) {
