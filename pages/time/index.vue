@@ -65,12 +65,14 @@
 const date = new Date();
 let year = date.getFullYear();
 let month = date.getMonth() + 1;
-let day = date.toString().slice(8, 10);
+let day = date.getDate();
 
 const { data, pending } = await useFetch(
-  `https://api.aladhan.com/v1/timingsByCity/${day}-${month}-${year}?city=cairo&country=egypt&method=8`
+  `https://api.aladhan.com/v1/timingsByCity/${day}-${
+    month.toString().length === 1 ? `0${month}` : month
+  }-${year}?city=cairo&country=egypt&method=5`
 );
-console.log(data.value.data);
+
 const timing = ref(data.value.data.timings);
 
 const timeArr = ref([]);
@@ -85,6 +87,33 @@ const timeFunc = () => {
   }
 };
 timeFunc();
+
+if (navigator.geolocation) {
+  navigator.geolocation.getCurrentPosition(showPosition);
+} else {
+  console.log("Geolocation is not supported by this browser.");
+}
+
+async function showPosition(position) {
+  // console.log("Latitude: " + position.coords.latitude);
+  // console.log("Longitude: " + position.coords.longitude);
+  const { data } = await useFetch(
+    `http://dev.virtualearth.net/REST/v1/Locations/${position.coords.latitude},${position.coords.longitude}?o=json&key=AiFdCItK77X69sIoxqOAq7ZS4hEMp6xlV8EkZM_N0xr-AFLEvyiHKL382FqTUto6`
+  );
+  console.log(toRaw(data.value.resourceSets[0].resources[0]));
+
+  console.log(
+    toRaw(data.value.resourceSets[0].resources[0].address.adminDistrict)
+  );
+
+  console.log(
+    toRaw(data.value.resourceSets[0].resources[0].address.countryRegion)
+  );
+
+  console.log(
+    toRaw(data.value.resourceSets[0].resources[0].address.formattedAddress)
+  );
+}
 
 const hoursNow = ref(null);
 const minsNow = ref(null);
