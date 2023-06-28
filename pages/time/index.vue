@@ -59,8 +59,10 @@
 
     <div class="col-12">
       <div class="w-100">
-        <h5 class="mb-0 d-flex justify-content-center align-items-center text-muted gap-1">
-          <span>حسب التوقيت المحلى لـ</span>
+        <h5
+          class="mb-0 d-flex justify-content-center align-items-center text-muted gap-1"
+        >
+          <span v-if="translatedAddress.length">حسب التوقيت المحلى لـ</span>
           <span>{{ translatedAddress }}</span>
         </h5>
       </div>
