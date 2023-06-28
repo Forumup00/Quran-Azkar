@@ -42,10 +42,7 @@ import Plyr from "plyr";
 const { data, pending } = await useFetch(
   "https://www.hisnmuslim.com/api/ar/27.json"
 );
-const azkarArr = ref([]);
-for (let zekr in data.value) {
-  azkarArr.value.push(...data.value[zekr]);
-}
+const azkarArr = ref(data.value[Object.keys(data.value)[0]]);
 
 onMounted(() => {
   const player = new Plyr(`#myAudio`);

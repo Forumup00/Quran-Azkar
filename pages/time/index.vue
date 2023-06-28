@@ -57,11 +57,21 @@
       </div>
     </div>
 
+    <div class="col-12">
+      <div class="w-100">
+        <h5 class="mb-0 d-flex justify-content-center align-items-center text-muted gap-1">
+          <span>حسب التوقيت المحلى لـ</span>
+          <span>{{ translatedAddress }}</span>
+        </h5>
+      </div>
+    </div>
+
     <SalahTimeFard v-for="fard in timeArr" :key="fard.name" :fard="fard" />
   </div>
 </template>
 
 <script setup>
+import axios from "axios";
 const date = new Date();
 let year = date.getFullYear();
 let month = date.getMonth() + 1;
@@ -88,6 +98,13 @@ const timeFunc = () => {
 };
 timeFunc();
 
+const country = ref("");
+const district = ref("");
+const district2 = ref("");
+const fullAddress = ref("");
+
+const translatedAddress = ref("");
+
 if (navigator.geolocation) {
   navigator.geolocation.getCurrentPosition(showPosition);
 } else {
@@ -102,17 +119,16 @@ async function showPosition(position) {
   );
   console.log(toRaw(data.value.resourceSets[0].resources[0]));
 
-  console.log(
-    toRaw(data.value.resourceSets[0].resources[0].address.adminDistrict)
-  );
+  country.value = data.value.resourceSets[0].resources[0].address.countryRegion;
 
-  console.log(
-    toRaw(data.value.resourceSets[0].resources[0].address.countryRegion)
-  );
+  district.value =
+    data.value.resourceSets[0].resources[0].address.adminDistrict;
 
-  console.log(
-    toRaw(data.value.resourceSets[0].resources[0].address.formattedAddress)
-  );
+  district2.value =
+    data.value.resourceSets[0].resources[0].address.adminDistrict2;
+
+  fullAddress.value =
+    data.value.resourceSets[0].resources[0].address.formattedAddress;
 }
 
 const hoursNow = ref(null);
@@ -124,6 +140,18 @@ onMounted(() => {
     minsNow.value = new Date().getMinutes();
     secsNow.value = new Date().getSeconds();
   }, 1000);
+
+  setTimeout(async () => {
+    await axios
+      .get(
+        `https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=ar&dt=t&q=${fullAddress.value}`
+      )
+      .then((res) => {
+        translatedAddress.value = res.data[0][0][0];
+        console.log(res.data[0][0][0]);
+      })
+      .catch((error) => console.error(error));
+  }, 500);
 });
 </script>
 
