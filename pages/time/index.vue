@@ -120,7 +120,6 @@ async function showPosition(position) {
   const { data } = await useFetch(
     `https://dev.virtualearth.net/REST/v1/Locations/${position.coords.latitude},${position.coords.longitude}?o=json&key=AiFdCItK77X69sIoxqOAq7ZS4hEMp6xlV8EkZM_N0xr-AFLEvyiHKL382FqTUto6`
   );
-  console.log(toRaw(data.value.resourceSets[0].resources[0]));
 
   country.value = data.value.resourceSets[0].resources[0].address.countryRegion;
 
@@ -151,7 +150,6 @@ onMounted(() => {
       )
       .then((res) => {
         translatedAddress.value = res.data[0][0][0];
-        console.log(res.data[0][0][0]);
       })
       .catch((error) => console.error(error));
   }, 1000);
