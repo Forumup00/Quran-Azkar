@@ -151,7 +151,7 @@ onMounted(() => {
         console.log(res.data[0][0][0]);
       })
       .catch((error) => console.error(error));
-  }, 500);
+  }, 1000);
 });
 </script>
 
