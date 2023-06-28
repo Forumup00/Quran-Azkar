@@ -60,10 +60,11 @@
     <div class="col-12">
       <div class="w-100">
         <h5
-          class="mb-0 d-flex justify-content-center align-items-center text-muted gap-1"
+          class="text-center mb-0 d-flex justify-content-center align-items-center text-muted gap-1 flex-md-row flex-sm-column flex-column"
         >
-          <span v-if="translatedAddress.length">حسب التوقيت المحلى لـ</span>
-          <span>{{ translatedAddress }}</span>
+          <span v-if="translatedAddress.length">
+            حسب التوقيت المحلى لـ {{ translatedAddress }}</span
+          >
         </h5>
       </div>
     </div>
