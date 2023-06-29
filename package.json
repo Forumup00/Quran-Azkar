@@ -13,10 +13,10 @@
     "nuxt": "^3.4.3"
   },
   "dependencies": {
-    "@pinia/nuxt": "^0.4.9",
+    "@pinia/nuxt": "^0.4.11",
     "axios": "^1.4.0",
     "bootstrap": "^5.2.3",
-    "pinia": "^2.0.35",
+    "pinia": "^2.1.4",
     "plyr": "^3.7.8"
   }
 }

@@ -20,7 +20,7 @@
           }}
         </span>
         <span>
-          {{ props.fard.time.slice(2) }}
+          {{ props.fard.time.slice(2,5) }}
         </span>
         <span class="me-1">
           {{ fard.time.slice(0, 2) >= 12 ? "مساءاً" : "صباحاً" }}
@@ -71,7 +71,7 @@ const hr = ref(
     ? props.fard.time.slice(0, 2) - 12
     : props.fard.time.slice(0, 2)
 );
-const min = ref(props.fard.time.slice(3));
+const min = ref(props.fard.time.slice(3,5));
 const sec = ref(0);
 
 const hr_rotation = ref(30 * hr.value + min.value / 2);
