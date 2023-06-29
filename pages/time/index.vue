@@ -138,7 +138,6 @@ if (store.latitude && store.longitude) {
     )
     .then((res) => {
       timing.value = res.data;
-      console.log(timing.value.data[day - 1].date);
 
       for (let time in res.data.data[day - 1].timings) {
         let obj = {
@@ -155,6 +154,8 @@ if (store.latitude && store.longitude) {
       `https://api.aladhan.com/v1/calendar/${year}/${month}?latitude=30.033333&longitude=31.233334&method=5`
     )
     .then((res) => {
+      timing.value = res.data;
+
       for (let time in res.data.data[day - 1].timings) {
         let obj = {
           name: time,
@@ -166,8 +167,6 @@ if (store.latitude && store.longitude) {
     .catch((error) => console.error(error));
 
   translateFullAddress();
-
-  console.log("555");
 }
 
 const hoursNow = ref(null);
